@@ -55,7 +55,7 @@ function Salads() {
       <div className="container"
       style={
         {
-          marginTop:400,
+          marginTop:580,
         }
       }>
         <div className="row">
@@ -75,7 +75,7 @@ function Salads() {
                       <p>₹{item.price}</p>
                     </div>
                     <button style={{
-                    backgroundColor:"#ff5722",borderRadius:5
+                    backgroundColor:"#D9534f",borderRadius:5
                   }} onClick={() => addToCart(item)}>
                       Add to cart
                     </button>

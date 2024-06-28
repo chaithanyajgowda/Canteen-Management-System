@@ -53,7 +53,7 @@ function FastFood() {
       <div className="container"
       style={
         {
-          marginTop:600,
+          marginTop:200,
         }
       }>
         <div className="row">
@@ -73,7 +73,7 @@ function FastFood() {
                       <p>₹{item.price}</p>
                     </div>
                     <button style={{
-                    backgroundColor:"#ff5722",borderRadius:5
+                    backgroundColor:"#D9534f",borderRadius:5
                   }} onClick={() => addToCart(item)}>
                       Add to cart
                     </button>

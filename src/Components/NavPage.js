@@ -12,7 +12,7 @@ const NavPage = () => {
   };
 
   const handleOrderClick = () => {
-    navigate('/MenuItem');
+    navigate('/MenuItem'); // Navigate to the MenuItem page
   };
 
   return (
@@ -31,12 +31,9 @@ const NavPage = () => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
-              <Button   className="mt-1" onClick={handleOrderClick}
-              style={ 
-                { backgroundColor: "#ffc107",  
-                  borderColor: "#ffc107" }}
-              >MENU</Button>
-
+              <Button className="mt-1" onClick={handleOrderClick} style={{ backgroundColor: "#ffc107", borderColor: "#ffc107" }}>
+                MENU
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

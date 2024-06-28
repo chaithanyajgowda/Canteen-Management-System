@@ -22,7 +22,7 @@ body {
   .form-container h1 {
     text-align: center; /* Center heading text */
     margin-bottom: 20px;
-      color:#ff5722 ;
+      color:#D9534f ;
   }
   .form-container .form-label {
     text-align: left;
@@ -34,7 +34,7 @@ body {
     border-radius: 5px;
   }
   button{
-    background-color: #ff5722;
+    background-color: #D9534f;
     border: none;
     padding: 5px 10px;
     color: white;

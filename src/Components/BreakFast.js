@@ -74,7 +74,7 @@ const BreakFast = () => {
                     <p>₹{item.price}</p>
                   </div>
                   <button style={{
-                    backgroundColor:"#ff5722",borderRadius:5
+                    backgroundColor:"#D9534f",borderRadius:5
                   }} onClick={() => addToCart(item)}>
                     Add to cart
                   </button>

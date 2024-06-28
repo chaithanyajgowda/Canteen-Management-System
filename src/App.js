@@ -6,6 +6,7 @@ import MenuItem from './Components/MenuItem';
 import './App.css'
 import OrderSummary from './Components/OrderSummary';
 import OrderConfirmation from './Components/OrderConfirmation';
+import Cart from './Components/Cart';
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/signup" element={<SigninForm />} />
         <Route path="/MenuItem" element={<MenuItem/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path='/order' element={<OrderSummary/>}/>
         <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
       </Routes>

@@ -30,7 +30,7 @@ const MenuItem = () => {
             <div className="card">
               <div className="d-flex align-items-center">
                 <img src="https://images.alphacoders.com/862/thumb-1920-862639.jpg" className="card-img-top" alt="Breakfast" 
-                 style={{
+                style={{
                   width:170
                 }}/>
                 <div className="card-body">

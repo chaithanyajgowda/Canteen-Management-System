@@ -15,7 +15,7 @@ body {
     margin-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    border-top: 1px solid #ff5722;
+    border-top: 1px solid #D9534f;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -43,7 +43,7 @@ body {
     color: #333;
   }
   .btn-view {
-    background-color: #ff5722;
+    background-color: #D9534f;
     color: white;
     transition: background-color 0.3s;
     border: none;
