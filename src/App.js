@@ -4,6 +4,7 @@ import HomePage from './Components/HomePage';
 import SigninForm from './Components/SigninForm';
 import MenuItem from './Components/MenuItem';
 import './App.css'
+import OrderSummary from './Components/OrderSummary';
 function App() {
   return (
     <Router>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/signup" element={<SigninForm />} />
         <Route path="/MenuItem" element={<MenuItem/>}/>
+        <Route path='/order' element={<OrderSummary/>}/>
       </Routes>
     </Router>
   );

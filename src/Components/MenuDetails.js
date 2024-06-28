@@ -1,4 +1,10 @@
 import React from 'react';
+import BreakFast from './BreakFast';
+import Beverages from './Beverages'
+import FastFood from './FastFood';
+import Dessert from './Dessert';
+import Salads from './Salads';
+import Chats from './Chats';
 
 const MenuDetails = ({ selectedMenu, onBack }) => {
   if (!selectedMenu) {
@@ -8,17 +14,17 @@ const MenuDetails = ({ selectedMenu, onBack }) => {
   const renderMenuDetails = () => {
     switch (selectedMenu) {
       case 'Breakfast':
-        return <div>Breakfast menu details...</div>;
+        return <BreakFast/>;
       case 'Fast Food':
-        return <div>Fast Food menu details...</div>;
+        return <FastFood/>;
       case 'Dessert':
-        return <div>Dessert menu details...</div>;
+        return <Dessert/>;
       case 'Beverages':
-        return <div>Beverages menu details...</div>;
+        return <Beverages/>;
       case 'Salads':
-        return <div>Salads menu details...</div>;
+        return <Salads/>;
       case 'Chats':
-        return <div>Chats menu details...</div>;
+        return <Chats/>;
       default:
         return null;
     }
