@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0;
+    padding: 0;
+}
+  
+  .form-container {
+    background-color:aliceblue;
+    width: 500px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Center text content within the container */
+    margin: auto; /* Center the container horizontally */
+    /* color: aliceblue; */
+   
+  }
+  
+  .form-container h1 {
+    text-align: center; /* Center heading text */
+    margin-bottom: 20px;
+  }
+  .form-container .form-label {
+    text-align: left;
+    display: block;
+    margin-left: 0px;
+  }
+  .button-style{
+    margin-top: 20px;
+  }

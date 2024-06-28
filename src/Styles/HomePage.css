@@ -1,0 +1,55 @@
+.main-section {
+  /* background-color: #343a40; */
+  padding: 60px 0;
+  min-height: 100vh; /* Ensure it takes the full viewport height */
+  /* background-image: url('https://th.bing.com/th/id/OIP.gLOtnBLJf7KH-SLGYycybQHaEo?w=285&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.large-img {
+  max-width: 500px; /* Increase the maximum width for larger display */
+  width: 100%;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.larger-text {
+  font-size: 3rem; /* Increase font size */
+}
+
+.largest-text {
+  font-size: 4rem; /* Even larger font size */
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.btn-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5rem; /* Increase font size for the button */
+}
+
+img{
+  border-radius: 45%;
+}
+.bordered-btn {
+  background-color: #e64a19;
+  /* border: 2px solid black; */
+  color: black; /* Ensures text color matches the border color */
+}
+
+
