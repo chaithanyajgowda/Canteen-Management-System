@@ -48,7 +48,13 @@ const BreakFast = () => {
   };
 
   return (
-    <div className="container">
+    <>
+    <NavPage />
+    <div className="container" style={
+      {
+        marginTop:580,
+      }
+    }>
       <NavPage 
       />
       <div className="row">
@@ -118,6 +124,7 @@ const BreakFast = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

@@ -32,9 +32,13 @@ function SigninForm() {
           <Form.Label>Password</Form.Label>
           <Form.Control className="control" type="password" placeholder="Password" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <button variant="primary" type="submit" style={{
+          backgroundColor:"#ff5722",
+          color:"white",
+          borderRadius:5
+        }}>
           Sign Up
-        </Button>
+        </button>
       </Form>
     </section>
     </>

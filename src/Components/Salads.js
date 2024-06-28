@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from './Cart';
+import NavPage from './NavPage';
 
 function Salads() {
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
   
     const menuItems = [
-      {id: 1, name: 'Coconut water', description: 'Refreshing drink', price: 40, image: 'https://tse1.mm.bing.net/th?id=OIP.8DPrqSoH6pTC0yt3x-WaBQHaE8&pid=Api&P=0&h=180' },
-      { id: 2, name: 'Lassi', description: 'Creamy yogurt drink,Sweet or Salty', price: 20, image: 'https://tse2.mm.bing.net/th?id=OIP.OnFpGTGtmxjladh3IJk2zAHaHa&pid=Api&P=0&h=180' },
-      { id: 3, name: 'Mocktail', description: 'Non-Alchoholic cocktail', price: 45, image: 'https://tse4.mm.bing.net/th?id=OIP.D9mW-Bo5rqijGEiDB_ItdAHaD4&pid=Api&P=0&h=180' },
-      { id: 4, name: 'Sugarcane juice', description: 'Sweet,trophical refreshment', price: 50, image: 'https://tse2.mm.bing.net/th?id=OIP._nnchQVIcNhfS3Ed47TWhAHaHa&pid=Api&P=0&h=180' },
-      { id: 5, name: 'Butter milk', description: 'Tangy dairy drink', price: 15, image: 'https://tse1.mm.bing.net/th?id=OIP.GF2UVPaF94Jmm-93nh5RqgHaE8&pid=Api&P=0&h=180' },
-      { id: 6, name: 'juice', description: 'Fresh drinks from presses fruit', price: 40, image: 'https://tse1.mm.bing.net/th?id=OIP.AQzO45DVmtbbmZdRzaifFwHaEu&pid=Api&P=0&h=180'},
+      { id: 1, name: 'Mini meal', description: 'Simple, satisfying, balanced', price: 80, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeEUgQP5MvxPY3dk0LTO-oGfBxFM9Rr1Yg-w&s' },
+    { id: 2, name: 'Full meal', description: 'Complete, hearty and fulfilling spread', price: 110, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNjSg6-Ogalxoxk7YQMF-a4-qeVUCBZUTYYw&s' },
+    { id: 3, name: 'Chicken biriyani', description: 'Aromatic and flavorful rice', price: 90, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZjL9M45o7b4quPOgGmzVxwEl5UWPLqDcDsw&s' },
+
+    { id: 4, name: 'Butter naan', description: 'soft and buttery flatbread', price: 50, image: 'https://vaya.in/recipes/wp-content/uploads/2018/03/Butter-Naan-1.jpg' },
+    { id: 5, name: 'Kabab', description: 'Spiced,succulent chicken', price: 40, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGqAPmm6BE0EBs7cDd3RZCn5R4itYnwLgYw&s' },
+    { id: 6, name: 'Chicken chilly', description: 'Spicy, tangy, and crispy chicken dish', price: 40, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0jUWo-qoqILA0beo2pChIp5WuNZUir39EGg&s' },
+    { id: 7, name: 'Chicken ghee roast', description: 'Rich, spicy, and indulgent chicken', price: 30, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OvGaGOZ1J2XaqjcFMFmtiXbF8qthXyHLTw&s' },
+    { id: 8, name: 'Fish fry', description: 'Crispy, seasoned, and delicious fried fish', price: 50, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpDP18MnH0eEcHX6CoCWcRb87HY72kkBBhIw&s' },
+    { id: 9, name: 'Egg roast', description: 'Spiced and savory hearty egg', price: 40, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThW2fbx02IBpawgKjyO-BVTVrJpAYk2uGH_Q&s' },
+
     ];
   
     const addToCart = (item) => {
@@ -44,7 +50,14 @@ function Salads() {
     };
   
     return (
-      <div className="container">
+      <>
+      <NavPage/>
+      <div className="container"
+      style={
+        {
+          marginTop:400,
+        }
+      }>
         <div className="row">
           <div className="col-md-4">
             <Cart cart={cart} total={total} addToCart={addToCart} removeFromCart={removeFromCart} />
@@ -61,7 +74,9 @@ function Salads() {
                       <p>{item.description}</p>
                       <p>₹{item.price}</p>
                     </div>
-                    <button className="btn btn-primary" onClick={() => addToCart(item)}>
+                    <button style={{
+                    backgroundColor:"#ff5722",borderRadius:5
+                  }} onClick={() => addToCart(item)}>
                       Add to cart
                     </button>
                   </li>
@@ -110,6 +125,7 @@ function Salads() {
           }
         `}</style>
       </div>
+      </>
     );
   };
 

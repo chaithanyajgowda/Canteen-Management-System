@@ -20,7 +20,7 @@ function LoginForm() {
   return (
   
    <>
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+    <Navbar bg="danger" variant="dark" expand="lg" fixed="top">
         <Container>
         <Navbar.Brand href="/">
            Brand of taste
