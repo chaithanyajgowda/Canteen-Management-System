@@ -34,7 +34,7 @@ const OrderSummary = () => {
 
   return (
     <div className="container my-1 border-black shadow-sm">
-      <h2>Order confirmation</h2>
+      <h2>Order Confirmation</h2>
       <ul>
         {cart.map((item) => (
           <li key={item.id} className="order-item">
