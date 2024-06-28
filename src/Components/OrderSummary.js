@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, ListGroup, Button, Form, Container } from 'react-bootstrap';
 
 const OrderSummary = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { cart, total } = location.state || { cart: [], total: 0 };
   const [paymentMethod, setPaymentMethod] = useState('cash');
   const [token, setToken] = useState('');
@@ -18,76 +20,84 @@ const OrderSummary = () => {
     setToken(newToken);
   };
 
+  useEffect(() => {
+    if (token) {
+      navigate('/order-confirmation', {
+        state: {
+          cart: cart,
+          total: total,
+          paymentMethod: paymentMethod,
+          token: token,
+        },
+      });
+    }
+  }, [token, cart, total, paymentMethod, navigate]);
+
   return (
-    <div className="container">
-      <h2>Order Summary</h2>
-      <ul>
-        {cart.map((item) => (
-          <li key={item.id} className="order-item">
-            <div className="order-details">
-              <h4>{item.name}</h4>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: ₹{item.price * item.quantity}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="total">
-        <h3>Total: ₹{total}</h3>
-      </div>
-      <div className="payment-method">
-        <h4>Mode of Payment</h4>
-        <div>
-          <label>
-            <input type="radio" name="payment" value="cash" checked={paymentMethod === 'cash'} onChange={handlePaymentChange} />
-            Cash
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" name="payment" value="upi" checked={paymentMethod === 'upi'} onChange={handlePaymentChange} />
-            UPI
-          </label>
-        </div>
-      </div>
-      <Link
-        to={{
-          pathname: '/order-confirmation',
-          state: {
-            cart: cart,
-            total: total,
-            paymentMethod: paymentMethod,
-            token: token
-          }
-        }}
-        className="btn btn-success mt-3"
-        onClick={handleSubmit}
-      >
+    <Container className="mt-4">
+      <h2>Order Confirmation</h2>
+      <Card className="my-4 border-black shadow-sm">
+        <Card.Header>Order Details</Card.Header>
+        <Card.Body>
+          <ListGroup variant="flush">
+            {cart.map((item) => (
+              <ListGroup.Item key={item.id} className="order-item">
+                
+                  <h5>{item.name}</h5>
+                  <div className="d-flex align-items-center">
+                    <p className="mb-0">Quantity: {item.quantity}</p>
+                    <p className="mb-0 ml-3">Price: ₹{item.price * item.quantity}</p>
+                  </div>
+               
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Card.Body>
+        <Card.Footer>
+          <h4>Total: ₹{total}</h4>
+        </Card.Footer>
+      </Card>
+      <Card className="my-5 border-black shadow-sm">
+        <Card.Header>Payment Method</Card.Header>
+        <Card.Body>
+          <Form>
+            <Form.Check 
+              type="radio"
+              label="Cash"
+              name="payment"
+              value="cash"
+              checked={paymentMethod === 'cash'}
+              onChange={handlePaymentChange}
+            />
+            <Form.Check 
+              type="radio"
+              label="UPI"
+              name="payment"
+              value="upi"
+              checked={paymentMethod === 'upi'}
+              onChange={handlePaymentChange}
+            />
+          </Form>
+        </Card.Body>
+      </Card>
+      {token && (
+        <Card className="my-4 border-black shadow-sm">
+          <Card.Body>
+            <h4>Order Token: {token}</h4>
+          </Card.Body>
+        </Card>
+      )}
+      <Button className="btn btn-success mt-3" onClick={handleSubmit}>
         Submit
-      </Link>
+      </Button>
       <style jsx>{`
-        .container {
-          margin-top: 20px;
-        }
-        .order-item {
-          border-bottom: 1px solid #ddd;
-          padding: 10px 0;
-        }
-        .order-item:last-child {
-          border-bottom: none;
-        }
-        .order-details {
-          margin-bottom: 10px;
-        }
-        .total {
-          margin-top: 20px;
-        }
-        .payment-method {
-          margin-top: 20px;
+        .border-black {
+          border-color: black !important;
         }
       `}</style>
-    </div>
+    </Container>
   );
 };
 
 export default OrderSummary;
+

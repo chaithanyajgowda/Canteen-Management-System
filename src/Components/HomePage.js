@@ -19,11 +19,9 @@ function HomePage() {
         <Row className="align-items-center justify-content-center min-vh-100 px-50">
           <Col md={6} lg={6} className="text-center order-lg-1">
             <h2 className="larger-text">Eat Tasty Dish Everyday</h2>
-            <h1 className="largest-text">SHARE YOUR LOVE ABOUT FOOD</h1>
+            <h1 className="largest-text gradient-text">SHARE YOUR LOVE ABOUT FOOD</h1>
             <Button
-             style={ 
-              { backgroundColor: "#ffc107",  
-                borderColor: "#ffc107" }}
+              style={{ backgroundColor: "#ffc107", borderColor: "#ffc107" }}
               className="mt-3 btn-large bordered-btn"
               onClick={handleOrderClick}
             >

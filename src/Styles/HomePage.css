@@ -23,29 +23,53 @@ padding-right: 240px;
   width: 100%;
 }
 
-.text-white {
-  color: #fff;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-.text-center {
-  text-align: center;
+.main-section {
+ 
+  padding: 60px 0;
 }
 
 .larger-text {
-  font-size: 1.3rem; /* Increase font size */
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #616c77;
+  text-shadow: 2px 2px 4px rgba(244, 46, 46, 0.1);
+  letter-spacing: 1px;
 }
 
 .largest-text {
-  font-size: 3rem; /* Even larger font size */
-}
-
-.mt-3 {
-  margin-top: 1rem;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #212529;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #0e0909, #742e03);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
 }
 
 .btn-large {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.5rem; /* Increase font size for the button */
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.bordered-btn {
+  border-radius: 50px;
+}
+
+.bordered-btn:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+  transform: scale(1.05);
 }
 
 img{
