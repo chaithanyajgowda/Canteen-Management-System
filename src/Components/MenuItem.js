@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CarouselPage from './CarouselPage';
 import NavPage from './NavPage';
 import MenuDetails from './MenuDetails';
 import '../Styles/MenuItem.css';
@@ -23,7 +22,9 @@ const MenuItem = () => {
   return (
     <div>
       <NavPage />
-      <CarouselPage />
+      <div className='food-section-img'>
+      <img src='https://www.fusion6.com.au/wp-content/uploads/2022/09/popular-indian-dishes-cuisine.jpg' alt=''></img>
+     </div>
       <div className="container-menu mt-5">
         <div className="row">
           <div className="col-12 mb-3">

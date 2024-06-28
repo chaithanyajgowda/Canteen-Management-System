@@ -1,22 +1,44 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {  useLocation, useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const OrderConfirmation = () => {
+const OrderSummary = () => {
   const location = useLocation();
-  const { cart, total, paymentMethod, token } = location.state || { cart: [], total: 0, paymentMethod: 'cash', token: '' };
+  const navigate = useNavigate();
+  const { cart, total } = location.state || { cart: [], total:0 };
+  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [token, setToken] = useState('');
+
+  const handlePaymentChange = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    // Generate a random token number (for example purposes)
+    const newToken = Math.floor(Math.random() * 1000000) + 1;
+    setToken(newToken);
+  };
+
+  useEffect(() => {
+    if (token) {
+      navigate('/order-confirmation', {
+        state: {
+          cart: cart,
+          total: total,
+          paymentMethod: paymentMethod,
+          token: token,
+        },
+      });
+    }
+  }, [token, cart, total, paymentMethod, navigate]);
 
   return (
-    <div className="container">
+    <div className="container my-1 border-black shadow-sm">
       <h2>Order Confirmation</h2>
-      <div>
-        <h3>Token Number: {token}</h3>
-        <h4>Payment Method: {paymentMethod}</h4>
-        {paymentMethod === 'upi' && <p>Payment is done</p>}
-      </div>
       <ul>
         {cart.map((item) => (
-          <li key={item.id}>
-            <div>
+          <li key={item.id} className="order-item">
+            <div className="order-details">
               <h4>{item.name}</h4>
               <p>Quantity: {item.quantity}</p>
               <p>Price: ₹{item.price * item.quantity}</p>
@@ -27,8 +49,61 @@ const OrderConfirmation = () => {
       <div className="total">
         <h3>Total: ₹{total}</h3>
       </div>
+      <div className="payment-method">
+        <h4>Mode of Payment</h4>
+        <div>
+          <label>
+            <input type="radio" name="payment" value="cash" checked={paymentMethod === 'cash'} onChange={handlePaymentChange} />
+            Cash
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="payment" value="upi" checked={paymentMethod === 'upi'} onChange={handlePaymentChange} />
+            UPI
+          </label>
+        </div>
+      </div>
+      {token && (
+        <div className="token">
+          <h4>Order Token: {token}</h4>
+        </div>
+      )}
+      <button className="btn btn-success mt-3" onClick={handleSubmit}>
+        Submit
+      </button>
+      <style jsx>{`
+        .container {
+          margin-top: 20px;
+          background-color:white;
+        }
+        .order-item {
+          border-bottom: 1px solid #ddd;
+          padding: 10px 0;
+        }
+        .order-item:last-child {
+          border-bottom: none;
+        }
+        .order-details {
+          margin-bottom: 10px;
+        }
+        .total {
+        border-top:2px solid black;
+          margin-top: 20px;
+        }
+        .payment-method {
+        border-top:2px solid black;
+          margin-top: 20px;
+        }
+        .token {
+          margin-top: 20px;
+          background-color: #f8f9fa;
+          padding: 10px;
+          border: 1px solid #ddd;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default OrderConfirmation;
+export default OrderSummary;
