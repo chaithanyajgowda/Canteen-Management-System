@@ -18,7 +18,7 @@ const NavPage = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+      <Navbar  variant="dark" expand="lg" fixed="top" className="custom-navbar">
         <Container>
           <Navbar.Brand href="/">Brand of Taste</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

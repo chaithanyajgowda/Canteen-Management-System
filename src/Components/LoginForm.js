@@ -1,5 +1,5 @@
 import { useNavigate,Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import '../Styles/Login.css'
@@ -42,9 +42,9 @@ function LoginForm() {
         <div className="signup-link">
             Don't have an account? <Link to="/signup">Sign Up</Link>
           </div>
-        <Button variant="primary" type="submit" className='button-style'>
+        <button  type="submit" className='button-style'>
           Submit
-        </Button>
+        </button>
       </Form>
     </section>
     </>
