@@ -33,7 +33,7 @@ const OrderSummary = () => {
   }, [token, cart, total, paymentMethod, navigate]);
 
   return (
-    <div className="container">
+    <div className="container my-1 border-black shadow-sm">
       <h2>Order confirmation</h2>
       <ul>
         {cart.map((item) => (
@@ -75,6 +75,7 @@ const OrderSummary = () => {
       <style jsx>{`
         .container {
           margin-top: 20px;
+          background-color:white;
         }
         .order-item {
           border-bottom: 1px solid #ddd;
@@ -87,9 +88,11 @@ const OrderSummary = () => {
           margin-bottom: 10px;
         }
         .total {
+        border-top:2px solid black;
           margin-top: 20px;
         }
         .payment-method {
+        border-top:2px solid black;
           margin-top: 20px;
         }
         .token {
