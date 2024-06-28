@@ -5,6 +5,7 @@ import SigninForm from './Components/SigninForm';
 import MenuItem from './Components/MenuItem';
 import './App.css'
 import OrderSummary from './Components/OrderSummary';
+import OrderConfirmation from './Components/OrderConfirmation';
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<SigninForm />} />
         <Route path="/MenuItem" element={<MenuItem/>}/>
         <Route path='/order' element={<OrderSummary/>}/>
+        <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
       </Routes>
     </Router>
   );

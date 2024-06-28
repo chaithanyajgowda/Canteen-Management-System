@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from './Cart';
+import NavPage from './NavPage';
 
 const BreakFast = () => {
   const [cart, setCart] = useState([]);
@@ -48,6 +49,8 @@ const BreakFast = () => {
 
   return (
     <div className="container">
+      <NavPage 
+      />
       <div className="row">
         <div className="col-md-4">
           <Cart cart={cart} total={total} addToCart={addToCart} removeFromCart={removeFromCart} />
@@ -64,7 +67,9 @@ const BreakFast = () => {
                     <p>{item.description}</p>
                     <p>₹{item.price}</p>
                   </div>
-                  <button className="btn btn-primary" onClick={() => addToCart(item)}>
+                  <button style={{
+                    backgroundColor:"#ff5722",borderRadius:5
+                  }} onClick={() => addToCart(item)}>
                     Add to cart
                   </button>
                 </li>

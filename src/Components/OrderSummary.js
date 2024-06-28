@@ -1,61 +1,91 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const OrderSummary = ({ cart, total }) => {
-  const [paymentMode, setPaymentMode] = useState('cash'); // Default payment mode is cash
-  const navigate = useNavigate();
+const OrderSummary = () => {
+  const location = useLocation();
+  const { cart, total } = location.state || { cart: [], total: 0 };
+  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [token, setToken] = useState('');
 
-  const handlePayment = () => {
-    // Handle payment logic here, for demo, just alert payment success
-    alert(`Payment successful with ${paymentMode.toUpperCase()}!`);
-    // You can clear cart or perform other actions related to payment completion
-    navigate('/'); // Navigate back to home after payment
+  const handlePaymentChange = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    // Generate a random token number (for example purposes)
+    const newToken = Math.floor(Math.random() * 1000000) + 1;
+    setToken(newToken);
   };
 
   return (
     <div className="container">
-      <h2>Payment Details</h2>
-      <div className="order-details">
-        <h3>Order Summary</h3>
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - ₹{item.price} x {item.quantity}
-            </li>
-          ))}
-        </ul>
-        <p>Total: ₹{total}</p>
+      <h2>Order Summary</h2>
+      <ul>
+        {cart.map((item) => (
+          <li key={item.id} className="order-item">
+            <div className="order-details">
+              <h4>{item.name}</h4>
+              <p>Quantity: {item.quantity}</p>
+              <p>Price: ₹{item.price * item.quantity}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="total">
+        <h3>Total: ₹{total}</h3>
       </div>
-      <div className="payment-options">
-        <h3>Select Payment Mode:</h3>
+      <div className="payment-method">
+        <h4>Mode of Payment</h4>
         <div>
           <label>
-            <input
-              type="radio"
-              name="paymentMode"
-              value="cash"
-              checked={paymentMode === 'cash'}
-              onChange={() => setPaymentMode('cash')}
-            />
+            <input type="radio" name="payment" value="cash" checked={paymentMethod === 'cash'} onChange={handlePaymentChange} />
             Cash
           </label>
         </div>
         <div>
           <label>
-            <input
-              type="radio"
-              name="paymentMode"
-              value="upi"
-              checked={paymentMode === 'upi'}
-              onChange={() => setPaymentMode('upi')}
-            />
+            <input type="radio" name="payment" value="upi" checked={paymentMethod === 'upi'} onChange={handlePaymentChange} />
             UPI
           </label>
         </div>
       </div>
-      <button className="btn btn-primary" onClick={handlePayment}>
-        Confirm Payment
-      </button>
+      <Link
+        to={{
+          pathname: '/order-confirmation',
+          state: {
+            cart: cart,
+            total: total,
+            paymentMethod: paymentMethod,
+            token: token
+          }
+        }}
+        className="btn btn-success mt-3"
+        onClick={handleSubmit}
+      >
+        Submit
+      </Link>
+      <style jsx>{`
+        .container {
+          margin-top: 20px;
+        }
+        .order-item {
+          border-bottom: 1px solid #ddd;
+          padding: 10px 0;
+        }
+        .order-item:last-child {
+          border-bottom: none;
+        }
+        .order-details {
+          margin-bottom: 10px;
+        }
+        .total {
+          margin-top: 20px;
+        }
+        .payment-method {
+          margin-top: 20px;
+        }
+      `}</style>
     </div>
   );
 };

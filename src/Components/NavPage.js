@@ -1,24 +1,23 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom';
 
 const NavPage = () => {
-  const navigate = useNavigate(); // Initialize navigate from useNavigate
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Perform any logout actions (e.g., clear session, etc.)
     // Redirect to the login form
-    navigate('/'); // Navigate to '/login' route
+    navigate('/');
   };
- 
-  
-    const handleOrderClick = () => {
-      navigate('/MenuItem');
-    };
+
+  const handleOrderClick = () => {
+    navigate('/MenuItem');
+  };
 
   return (
     <>
-      <Navbar  variant="dark" expand="lg" fixed="top" className="custom-navbar">
+      <Navbar bg="danger" variant="dark" expand="lg" fixed="top" className="custom-navbar">
         <Container>
           <Navbar.Brand href="/">Brand of Taste</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,11 +27,16 @@ const NavPage = () => {
             </Nav>
             <Nav>
               <NavDropdown title="Account" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#account-details">My Orders</NavDropdown.Item>
+                <NavDropdown.Item href="#account-details" >My Orders</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
-              <Button variant="warning" className="mt-1" onClick={handleOrderClick}>MENU</Button>
+              <Button   className="mt-1" onClick={handleOrderClick}
+              style={ 
+                { backgroundColor: "#ffc107",  
+                  borderColor: "#ffc107" }}
+              >MENU</Button>
+
             </Nav>
           </Navbar.Collapse>
         </Container>

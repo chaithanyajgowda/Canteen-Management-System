@@ -6,8 +6,15 @@
   background-size: cover;
   background-repeat: no-repeat; */
 }
-
-
+body{
+  background-color: aqua;
+}
+.App{
+background-color: 
+#ff9100;
+padding-left: 240px;
+padding-right: 240px;
+}
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -27,11 +34,11 @@
 }
 
 .larger-text {
-  font-size: 3rem; /* Increase font size */
+  font-size: 1.3rem; /* Increase font size */
 }
 
 .largest-text {
-  font-size: 4rem; /* Even larger font size */
+  font-size: 3rem; /* Even larger font size */
 }
 
 .mt-3 {
