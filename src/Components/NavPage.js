@@ -19,7 +19,7 @@ const NavPage = () => {
     <>
       <Navbar bg="danger" variant="dark" expand="lg" fixed="top" className="custom-navbar">
         <Container>
-          <Navbar.Brand href="/">Brand of Taste</Navbar.Brand>
+          <Navbar.Brand href="/">Brand of taste</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
