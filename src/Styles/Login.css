@@ -6,7 +6,14 @@ body {
     margin: 0;
     padding: 0;
 }
-  
+
+ .waves{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 90px;
+ } 
   .form-container {
     background-color:rgb(255, 255, 255);
     width: 500px;
